@@ -1,8 +1,16 @@
 {
   "name": "faaahhh-signals",
+  "publisher": "AlfiNikhat",
   "displayName": "Faaahhh Signals",
-  "description": "Plays Faaahhh and other sounds when you run a wrong terminal command",
+"description": "Plays the iconic FAAAAH sound (and 10 other meme sounds) whenever you run a wrong command in the terminal. Never silently fail again. 🔊",
+"keywords": ["sound", "terminal", "error", "faah", "meme", "fun"],
   "version": "0.0.2",
+  "icon": "icon.png",
+  "license": "MIT",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/Isabelle36/Faaahh-Signals"
+},
   "engines": {
     "vscode": "^1.90.0"
   },
