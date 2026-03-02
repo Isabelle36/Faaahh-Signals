@@ -38,7 +38,36 @@ export function activate(context: vscode.ExtensionContext) {
   console.log('Faaahhh Signals is watching your failures 👀');
 
   // Warm up the PowerShell process immediately on activation
+
   getPSProcess();
+
+  context.subscriptions.push(
+  vscode.commands.registerCommand('faaahhh.pickSound', async () => {
+    const sounds = [
+      { label: '😤 Faahh', value: 'Faahh' },
+      { label: '😱 AHH Anime Girl', value: 'AHH-anime-girl' },
+      { label: '🎺 AND HIS NAME IS JOHN CENA', value: 'and-his-name-is-john-cena' },
+      { label: '🕵️ CID', value: 'cid' },
+      { label: '😤 Faah But Bad One', value: 'faah-but-bad-one' },
+      { label: '💀 Gawk Gawk', value: 'Gawk-Gawk' },
+      { label: '🙅 Hell Nah Bruh', value: 'Hell-nah-bruh' },
+      { label: '👋 Khatam Bye Bye', value: 'Khatam-Bye-Bye' },
+      { label: '🐶 Laughing Dog Meme', value: 'laughing-dog-meme' },
+      { label: '😲 Shocked', value: 'Shocked' },
+      { label: '✨ Yooi', value: 'yooi' },
+    ];
+
+    const picked = await vscode.window.showQuickPick(sounds, {
+      placeHolder: 'Choose your Faaahhh sound',
+    });
+
+    if (picked) {
+      await vscode.workspace.getConfiguration('faaahhh').update('sound', picked.value, vscode.ConfigurationTarget.Global);
+      vscode.window.showInformationMessage(`Faaahhh sound set to: ${picked.label}`);
+      playErrorSound(context); // preview the selected sound
+    }
+  })
+);
 
   context.subscriptions.push(
     vscode.window.onDidEndTerminalShellExecution((e) => {

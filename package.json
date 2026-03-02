@@ -2,7 +2,7 @@
   "name": "faaahhh-signals",
   "displayName": "Faaahhh Signals",
   "description": "Plays Faaahhh and other sounds when you run a wrong terminal command",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -14,14 +14,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "faaahhh.testSound",
-        "title": "Faaahhh: Test Sound"
+        "command": "faaahhh.pickSound",
+        "title": "Faaahhh: Pick Sound"
       }
     ],
     "configuration": {
       "title": "Faaahhh Signals",
       "properties": {
-       "faaahhh.sound": {
+     "faaahhh.sound": {
   "type": "string",
   "default": "Faahh",
   "enum": [
